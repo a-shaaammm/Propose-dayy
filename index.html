@@ -22,9 +22,10 @@
     }
 
     #bear {
-        margin-top: 30px;
-        width: 150px;
+        font-size: 100px;
         animation: bounce 1s infinite alternate;
+        display: block;
+        margin: 30px auto;
     }
 
     @keyframes bounce {
@@ -40,108 +41,4 @@
         padding: 15px 30px;
         font-size: 1.2em;
         border: none;
-        border-radius: 10px;
-        cursor: pointer;
-        margin: 20px;
-        transition: all 0.3s ease;
-        background: #ff69b4;
-        color: white;
-        box-shadow: 2px 2px 5px #ff1493;
-    }
-
-    button:hover {
-        transform: scale(1.1);
-    }
-
-    .hidden {
-        display: none;
-    }
-
-    /* Falling hearts & roses */
-    .heart, .rose {
-        position: absolute;
-        width: 30px;
-        height: 30px;
-        background-size: cover;
-        pointer-events: none;
-        animation: fall linear infinite;
-    }
-
-    @keyframes fall {
-        0% { transform: translateY(-50px); opacity: 1; }
-        100% { transform: translateY(100vh); opacity: 0; }
-    }
-
-    /* Celebration text */
-    #celebration-text {
-        font-size: 2em;
-        color: #fff;
-        margin-top: 30px;
-        text-shadow: 2px 2px #ff1493;
-    }
-
-    #hug-bears {
-        width: 200px;
-        margin-top: 20px;
-    }
-
-</style>
-</head>
-<body>
-
-<h1>Heyy Ammu, Will you be my Valentine??</h1>
-<img id="bear" src="https://i.postimg.cc/2jY7YqgK/cute-brown-bear.png" alt="Cute Brown Bear">
-
-<div class="btn-container">
-    <button id="yesBtn">Yes</button>
-    <button id="noBtn">No</button>
-</div>
-
-<div id="celebration" class="hidden">
-    <h1 id="celebration-text">Knew you would say yes💗. I love you sooo much😚</h1>
-    <img id="hug-bears" src="https://i.postimg.cc/9FvK8X7D/bear-hug.png" alt="Bear Hug">
-</div>
-
-<script>
-    const yesBtn = document.getElementById('yesBtn');
-    const noBtn = document.getElementById('noBtn');
-    let yesSize = 1;
-
-    noBtn.addEventListener('click', () => {
-        yesSize += 0.2;
-        yesBtn.style.transform = `scale(${yesSize})`;
-    });
-
-    yesBtn.addEventListener('click', () => {
-        document.querySelector('h1').classList.add('hidden');
-        document.getElementById('bear').classList.add('hidden');
-        document.querySelector('.btn-container').classList.add('hidden');
-        document.getElementById('celebration').classList.remove('hidden');
-        startFalling();
-    });
-
-    function startFalling() {
-        const total = 50; // number of falling hearts/roses
-        for(let i=0; i<total; i++) {
-            createFalling('heart', 'https://i.postimg.cc/L6qZV1nk/heart.png');
-            createFalling('rose', 'https://i.postimg.cc/MKd7v3Wg/rose.png');
-        }
-    }
-
-    function createFalling(className, imgSrc) {
-        const el = document.createElement('div');
-        el.classList.add(className);
-        el.style.left = Math.random() * 100 + 'vw';
-        el.style.animationDuration = (3 + Math.random() * 5) + 's';
-        el.style.backgroundImage = `url(${imgSrc})`;
-        document.body.appendChild(el);
-
-        // Remove after animation
-        setTimeout(() => {
-            el.remove();
-        }, 8000);
-    }
-</script>
-
-</body>
-</html>
+        border-
